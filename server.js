@@ -20,19 +20,23 @@ var rollbar = new Rollbar({
 rollbar.log("Hello world!");
 
 //middleware
-  app.use("/", express.static(path.join(__dirname, "../assessment-qa-devops/public")));
+//   app.use("/styles", express.static(path.join(__dirname, "/public/index.css")));
+//   app.use("/", express.static(path.join(__dirname, "/public/index.html")));
+//   app.use("/js", express.static(path.join(__dirname, "/public/index.js")));
 
-// app.get("/", function(req, res) {
-//         res.sendFile(path.join(__dirname, "../public "))
-//     });
 
-// app.get("/", function(req, res) {
-//         res.sendFile(path.join(__dirname, "../public/index.html"))
-//     });
+
+app.get("/js", function(req, res) {
+        res.sendFile(path.join(__dirname, "/public/index.js"))
+    });
+
+app.get("/", function(req, res) {
+        res.sendFile(path.join(__dirname, "/public/index.html"))
+    });
     
-// app.get("/styles", function(req,res) {
-//         res.sendFile(path.join(__dirname, "..public/index.css"));
-//     });
+app.get("/styles", function(req,res) {
+        res.sendFile(path.join(__dirname, "/public/index.css"));
+    });
 
 
 
