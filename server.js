@@ -8,14 +8,25 @@ const {shuffleArray} = require('./utils')
 app.use(express.json());
 app.use(cors());
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: '5613eaf173044be2b1eea95847031449',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
+
 //middleware
-app.use("/", express.static(path.join(__dirname, "../public")));
+  app.use("/", express.static(path.join(__dirname, "../assessment-qa-devops/public")));
 
 // app.get("/", function(req, res) {
 //         res.sendFile(path.join(__dirname, "../public "))
 //     });
 
-// app.get("/test", function(req, res) {
+// app.get("/", function(req, res) {
 //         res.sendFile(path.join(__dirname, "../public/index.html"))
 //     });
     
