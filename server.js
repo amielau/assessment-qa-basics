@@ -9,19 +9,19 @@ app.use(express.json());
 app.use(cors());
 
 //middleware
-app.use(express.static(path.join(__dirname, "../public")));
+// app.use(express.static(path.join(__dirname, "../public")));
 
-// app.get("/", function(req, res) {
-//         res.sendFile(path.join(__dirname, "../public "))
-//     });
+app.get("/", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public "))
+    });
 
-// app.get("/", function(req, res) {
-//         res.sendFile(path.join(__dirname, "../public/index.html"))
-//     });
+app.get("/test", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/index.html"))
+    });
     
-// app.get("/styles", function(req,res) {
-//         res.sendFile(path.join(__dirname, "..public/index.css"));
-//     });
+app.get("/styles", function(req,res) {
+        res.sendFile(path.join(__dirname, "..public/index.css"));
+    });
 
 
 
